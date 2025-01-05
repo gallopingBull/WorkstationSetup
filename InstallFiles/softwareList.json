@@ -1,0 +1,82 @@
+{
+  "utilities": [
+    {
+      "name": "Chocolatey",
+      "command": "Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+    }
+  ],
+  "applications": [
+    {
+      "name": "7-Zip",
+      "url": "https://www.7-zip.org/a/7z2409-x64.exe",
+      "loginRequired": false,
+      "silentArgs": "/S"
+    },
+	{
+	  "name": "Discord",
+      "url": "https://discord.com/api/download?platform=win",
+      "loginRequired": true,
+      "silentArgs": "-s"
+    },
+	{
+      "name": "Firefox",
+      "url": "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US",
+      "loginRequired": false,
+      "silentArgs": "/S"
+    },
+    {
+      "name": "git",
+      "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.2/Git-2.47.0.2-64-bit.exe",
+      "loginRequired": false,
+      "silentArgs": "/SILENT /NORESTART"
+    },
+    {
+      "name": "GitHub Desktop",
+      "url": "https://central.github.com/deployments/desktop/desktop/latest/win32",
+      "loginRequired": true,
+      "silentArgs": "-s"
+    },
+    {
+      "name": "Notepad++",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe",
+      "loginRequired": false,
+      "silentArgs": "/S"
+    },
+	{
+      "name": "Steam",
+      "url": "https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe",
+      "loginRequired": true,
+      "silentArgs": "/S"
+    },
+	{
+      "name": "VLC media player",
+      "url": "https://download.videolan.org/pub/videolan/vlc/3.0.21/win64/vlc-3.0.21-win64.exe",
+      "loginRequired": false,
+      "silentArgs": "/S"
+    },
+    {
+      "name": "Visual Studio Community 2022",
+      "url": "https://aka.ms/vs/17/release/vs_community.exe",
+      "loginRequired": false,
+      "silentArgs": "--installPath C:\\VisualStudio --add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.VisualStudio.Workload.ManagedGame;includeRecommended;includeOptional --quiet --norestart --nocache --wait --noUpdateInstaller /S"
+    }
+  ],
+  "chocopackages": [
+	{
+	  "name": "brave",
+      "loginRequired": true
+	},
+	{
+	  "name": "epicgameslauncher",
+      "loginRequired": true
+	},
+	{
+	  "name": "qbittorrent",
+      "loginRequired": false
+	},
+	{
+	  "name": "vscode",
+      "loginRequired": true
+	}
+  ]
+}
