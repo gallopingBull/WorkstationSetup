@@ -1,5 +1,5 @@
 # WorkstationSetup
- Automates Windows workstation setup by downloading and installing essential applications, utilities, and packages.
+ WorkstationSetup is a collection of PowerShell and batch scripts designed to automate the setup process for my workstation. These scripts download and install essential applications, utilities, and packages, ensuring a seamless and efficient configuration tailored for my regular needs.
 
 # Notes
 
@@ -29,5 +29,6 @@ Several apps had to be downloaded and installed with Chocolatey because PowerShe
 ### Other Utilities to Consider:
 - **Bitwarden CLI**: [Bitwarden CLI](https://community.chocolatey.org/packages/bitwarden-cli)
 - **Nuget**: `Install-PackageProvider -Name Nuget -Force`
+	- This might already be installed with a Chocolatey package (need to verify).
 - **Chris Titus Windows Utilities Package Tool**: [ChrisTitusTech](https://github.com/ChrisTitusTech/winutil)
 - **OhMyPosh**: [OhMyPosh Installation](https://ohmyposh.dev/docs/installation/windows)
