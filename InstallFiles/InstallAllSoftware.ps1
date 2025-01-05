@@ -45,7 +45,7 @@ function Install {
             if ($isInstalled) { 
                 Write-Output "Application '$Name' installation complete!" 
             
-			   # Delete installation files
+			    # Delete installation files
 				Write-Host "Deleting $Name installation files"
 				Remove-Item -Force -Recurse -Path $installerPath
             } else {
@@ -53,6 +53,10 @@ function Install {
             } 
         } else { 
             Write-Output "The installation process did not complete successfully. Exit code: $($process.ExitCode)" 
+			
+			# Delete installation files
+			Write-Host "Deleting $Name installation files"
+			Remove-Item -Force -Recurse -Path $installerPath
         }
     } else {
         Write-Output "$Name download failed!"

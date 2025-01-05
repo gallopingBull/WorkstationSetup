@@ -64,6 +64,10 @@ function Install {
             } 
         } else { 
             Write-Output "The installation process did not complete successfully. Exit code: $($process.ExitCode)" 
+			
+			# Delete installation files
+			Write-Host "Deleting $Name installation files"
+			Remove-Item -Force -Recurse -Path $installerPath
         }
     } else {
         Write-Host "$Name download failed!"

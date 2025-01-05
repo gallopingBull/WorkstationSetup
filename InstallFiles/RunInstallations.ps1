@@ -48,7 +48,6 @@ foreach ($app in $jsonObject.applications) {
 $softwareList
 
 & "$WorkingDirectory\InstallAllSoftware.ps1" -Software $softwareList | Tee-Object -FilePath $logFilePath -Append
-#& "$WorkingDirectory\InstallAllSoftware.ps1" -Software $softwareList
 
 #Write-Host "All software installed successfully."
 
@@ -82,7 +81,5 @@ foreach ($chocoPkg in $jsonObject.chocopackages) {
 } 
 
 & "$WorkingDirectory\InstallChocoPackages.ps1" -ChocoPackages $chocoPkgList | Tee-Object -FilePath $logFilePath -Append
-
-#& "$WorkingDirectory\InstallChocoPackages.ps1" -ChocoPackages $chocoPkgList
 
 Write-Output "All software installed successfully. Installation logs saved to $"
