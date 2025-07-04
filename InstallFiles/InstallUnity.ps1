@@ -1,7 +1,7 @@
-#Original Author: StephenHodgson
+# Original Author: StephenHodgson
 #https://github.com/StephenHodgson/UnityCI/blob/master/InstallUnityHub.ps1
 
-$version = "m_EditorVersionWithRevision: 2019.1.14f1 (148b5891095a)"
+$version = "m_EditorVersionWithRevision: 2022.3.55f1 (9f374180d209)"
 $pattern = '(?<version>(?:(?<major>\d+)\.)?(?:(?<minor>\d+)\.)?(?:(?<patch>\d+[fab]\d+)\b))|((?:\((?<revision>\w+))\))'
 $versonMatches = [regex]::Matches($version, $pattern)
 $UnityVersion = $versonMatches[0].Groups['version'].Value.Trim()
@@ -11,7 +11,8 @@ if ( (-not $global:PSVersionTable.Platform) -or ($global:PSVersionTable.Platform
   $hubPath = "C:\Program Files\Unity Hub\Unity Hub.exe"
   $editorRootPath = "C:\Program Files\Unity\Hub\Editor\"
   $editorFileEx = "\Editor\Unity.exe"
-  $modules = @('windows-il2cpp', 'universal-windows-platform', 'lumin', 'webgl', 'android')
+  $modules = @('windows-il2cpp', 'webgl', 'android')
+  #$modules = @('windows-il2cpp', 'universal-windows-platform', 'lumin', 'webgl', 'android')
 
   #"Unity Hub.exe" -- --headless help
   #. 'C:\Program Files\Unity Hub\Unity Hub.exe' -- --headless help
@@ -139,8 +140,9 @@ $modulesPath = '{0}{1}{2}modules.json' -f $editorRootPath,$UnityVersion,[IO.Path
 if ( Test-Path -Path $modulesPath ) {
   Write-Host "Modules Manifest: "$modulesPath
   Write-Host ""
+  $json = Get-Content -Raw -Path $modulesPath | ConvertFrom-Json -AsHashTable
 
-  foreach ($module in (Get-Content -Raw -Path $modulesPath | ConvertFrom-Json)) {
+  foreach ($module in $json) {
     if ( ($module.category -eq 'Platforms') -and ($module.visible -eq $true) ) {
       if ( -not ($modules -contains $module.id) ) {
         Write-Host "additional module option: " $module.id
